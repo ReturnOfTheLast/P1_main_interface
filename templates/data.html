@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Data Analysis{% endblock %}
+{% block content %}
+	<h1 class="text-center">Data Analysis</h1>
+	<div class="row">
+		<div class="col">
+			<form>
+				<div class="row g-3 aligin-align-items-center">
+					<div class="col-auto">
+						<select class="form-select" id="ftype" name="ftype">
+							<option value="ssid" {% if ftype == "ssid" %}selected{% endif %}>SSID</option>
+							<option value="bssid" {% if ftype == "bssid" %}selected{% endif %}>BSSID</option>
+						</select>
+					</div>
+					<div class="col-auto">
+						<input class="form-control" type="text" id="fstr" name="fstr" value="{{ fstr }}">
+					</div>
+					<div class="col-auto">
+						<button class="btn btn-dark" type="submit">Filter</button>
+					</div>
+				</div>
+			</form>
+			<div class="vr"></div>
+			<ul class="list-group">
+				{% for ssid in listview %}
+					<li class="list-group-item">{{ ssid }}
+						<ul class="list-group">
+							{% for bssid in listview[ssid] %}
+								<li class="list-group-item">{{ bssid }}</li>
+							{% endfor %}
+						</ul>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="col">
+		</div>
+	</div>
+{% endblock %}
