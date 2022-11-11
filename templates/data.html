@@ -23,7 +23,7 @@
 			<div class="vr"></div>
 			<ul class="list-group">
 				{% for ssid in listview %}
-					<li class="list-group-item">{{ ssid }}
+					<li class="list-group-item"><a href="/data/ssid/{{ ssid }}">{{ ssid }}</a>
 						<ul class="list-group">
 							{% for bssid in listview[ssid] %}
 								<li class="list-group-item"><a href="/data/bssid/{{ bssid }}">{{ bssid }}</a></li>

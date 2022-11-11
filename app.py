@@ -27,5 +27,9 @@ def data_view():
 def bssid_data_view(bssid: str):
     return render_template("bssid_data.html", bssid=bssid)
 
+@app.get("/data/ssid/<string:ssid>")
+def ssid_data_view(ssid: str):
+    return render_template("ssid_data.html", ssid=ssid)
+
 if __name__ == "__main__":
-    app.run("localhost", 8080)
+    app.run("0.0.0.0", 8080)
