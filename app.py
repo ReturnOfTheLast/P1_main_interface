@@ -23,5 +23,9 @@ def data_view():
 
     return render_template("data.html", ftype=ftype, fstr=fstr, listview=listview)
 
+@app.get("/data/bssid/<string:bssid>")
+def bssid_data_view(bssid: str):
+    return render_template("bssid_data.html", bssid=bssid)
+
 if __name__ == "__main__":
     app.run("localhost", 8080)

@@ -26,7 +26,7 @@
 					<li class="list-group-item">{{ ssid }}
 						<ul class="list-group">
 							{% for bssid in listview[ssid] %}
-								<li class="list-group-item">{{ bssid }}</li>
+								<li class="list-group-item"><a href="/data/bssid/{{ bssid }}">{{ bssid }}</a></li>
 							{% endfor %}
 						</ul>
 					</li>
@@ -34,6 +34,7 @@
 			</ul>
 		</div>
 		<div class="col">
+			<img src="https://via.placeholder.com/500.png" class="rounded mx-auto d-block">
 		</div>
 	</div>
 {% endblock %}
