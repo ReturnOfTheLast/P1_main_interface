@@ -1,31 +1,44 @@
 {% extends "base.html" %}
 {% block title %}Data Analysis{% endblock %}
 {% block content %}
+	{# Headline #}
 	<h1 class="text-center">Data Analysis</h1>
+	{# Setup row #}
 	<div class="row">
+		{# Left Column #}
 		<div class="col">
+			{# Form for filtering #}
 			<form>
 				<div class="row g-3 aligin-align-items-center">
 					<div class="col-auto">
+						{# Dropdown list #}
 						<select class="form-select" id="ftype" name="ftype">
 							<option value="ssid" {% if ftype == "ssid" %}selected{% endif %}>SSID</option>
 							<option value="bssid" {% if ftype == "bssid" %}selected{% endif %}>BSSID</option>
 						</select>
 					</div>
 					<div class="col-auto">
+						{# Text field #}
 						<input class="form-control" type="text" id="fstr" name="fstr" value="{{ fstr }}">
 					</div>
 					<div class="col-auto">
+						{# Submit Button #}
 						<button class="btn btn-dark" type="submit">Filter</button>
 					</div>
 				</div>
 			</form>
-			<div class="vr"></div>
+			{# Vertical Spacer #}
+			<div class="vr"></div>'
+			{# List of Data #}
 			<ul class="list-group">
+				{# Go through all keys (ssids) #}
 				{% for ssid in listview %}
+					{# Create a list element for each #}
 					<li class="list-group-item"><a href="/data/ssid/{{ ssid }}">{{ ssid }}</a>
 						<ul class="list-group">
+							{# Go through all bssids for that ssid #}
 							{% for bssid in listview[ssid] %}
+								{# and create a list element for these #}
 								<li class="list-group-item"><a href="/data/bssid/{{ bssid }}">{{ bssid }}</a></li>
 							{% endfor %}
 						</ul>
@@ -34,6 +47,7 @@
 			</ul>
 		</div>
 		<div class="col">
+			{# Placeholder for heatmap / dataplot #}
 			<img src="https://via.placeholder.com/500.png" class="rounded mx-auto d-block">
 		</div>
 	</div>

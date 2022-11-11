@@ -2,11 +2,13 @@
 <html lang="en">
 	<head>
 		{% block head %}
+		{# Bootstrap CSS #}
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 		<title>{% block title %}{% endblock %} - WiFi Scanninator</title>
 		{% endblock %}
 	</head>
 	<body>
+		{# Navigation Bar #}
 		<nav class="navbar navbar-expand-lg bg-dark">
 			<div class="container-fluid">
 				<a class="navbar-brand text-light" href="/">WiFi Scanninator</a>
@@ -21,6 +23,7 @@
 				{% block navcontent %}{% endblock %}
 			</div>
 		</nav>
+		{# Content container #}
 		<div class="container" id="content">{% block content %}{% endblock %}</div>
 	</body>
 </html>

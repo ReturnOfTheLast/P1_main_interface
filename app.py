@@ -7,10 +7,12 @@ app = Flask(__name__)
 def index_view():
     return render_template("index.html")
 
+# Drone Controller
 @app.get("/drone")
 def drone_view():
     return render_template("drone.html")
 
+# Data Analysis
 @app.get("/data")
 def data_view():
     ftype = request.args.get("ftype", "")
@@ -23,10 +25,12 @@ def data_view():
 
     return render_template("data.html", ftype=ftype, fstr=fstr, listview=listview)
 
+# Data Analysis - BSSID
 @app.get("/data/bssid/<string:bssid>")
 def bssid_data_view(bssid: str):
     return render_template("bssid_data.html", bssid=bssid)
 
+# Data Analysis - SSID
 @app.get("/data/ssid/<string:ssid>")
 def ssid_data_view(ssid: str):
     return render_template("ssid_data.html", ssid=ssid)
