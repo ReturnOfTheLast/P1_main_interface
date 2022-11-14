@@ -23,6 +23,8 @@ def data_view():
             "ssid 2": ["189372983053", "084724652590", "739472952784"]
     }
 
+    listview = {}
+
     return render_template("data.html", ftype=ftype, fstr=fstr, listview=listview)
 
 # Data Analysis - BSSID

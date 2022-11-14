@@ -1,4 +1,23 @@
 {% extends "base.html" %}
 {% block title %}Drone Controller{% endblock %}
 {% block content %}
+	<h1 class="text-center">Drone Controller</h1>
+	<div class="row">
+		<div class="col">
+			<form>
+				<div class="row g-3 align-items-center">
+					<div class="col-12">
+						<label class="form-label" for="instruct">Instructions</label>
+						<textarea class="form-control" id="instruct" name="instruct" rows="10"></textarea>
+					</div>
+					<div class="col-12">
+						<button class="btn btn-success" type="submit">Run</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="col">
+			<img src="https://via.placeholder.com/500.png" class="rounded mx-auto d-block">
+		</div>
+	</div>
 {% endblock %}

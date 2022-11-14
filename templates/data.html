@@ -9,7 +9,7 @@
 		<div class="col">
 			{# Form for filtering #}
 			<form>
-				<div class="row g-3 aligin-align-items-center">
+				<div class="row g-3 align-items-center">
 					<div class="col-auto">
 						{# Dropdown list #}
 						<select class="form-select" id="ftype" name="ftype">
@@ -28,26 +28,37 @@
 				</div>
 			</form>
 			{# Vertical Spacer #}
-			<div class="vr"></div>
-			{# List of Data #}
-			<ul class="list-group">
-				{# Go through all keys (ssids) #}
-				{% for ssid in listview %}
-					{# Create a list element for each #}
-					<li class="list-group-item"><a href="/data/ssid/{{ ssid }}">{{ ssid }}</a>
-						<ul class="list-group">
-							{# Go through all bssids for that ssid #}
-							{% for bssid in listview[ssid] %}
-								{# and create a list element for these #}
-								<li class="list-group-item"><a href="/data/bssid/{{ bssid }}">{{ bssid }}</a></li>
-							{% endfor %}
-						</ul>
-					</li>
-				{% endfor %}
-			</ul>
+			<br>
+			{% if listview %}
+				{# List of Data #}
+				<ul class="list-group">
+					{# Go through all keys (ssids) #}
+					{% for ssid in listview %}
+						{# Create a list element for each #}
+						<li class="list-group-item"><a href="/data/ssid/{{ ssid }}">{{ ssid }}</a>
+							<ul class="list-group">
+								{# Go through all bssids for that ssid #}
+								{% for bssid in listview[ssid] %}
+									{# and create a list element for these #}
+									<li class="list-group-item"><a href="/data/bssid/{{ bssid }}">{{ bssid }}</a></li>
+								{% endfor %}
+							</ul>
+						</li>
+					{% endfor %}
+				</ul>
+			{% else %}
+				<div class="row bg-danger justify-content-center text-dark text-center align-items-center rounded">
+					<div class="col">
+						<h2>No Data</h2>
+					</div>
+				</div>
+			{% endif %}
 		</div>
 		<div class="col">
-			{# Placeholder for heatmap / dataplot #}
+			{# Placeholder for heatmap #}
+			<img src="https://via.placeholder.com/500.png" class="rounded mx-auto d-block">
+			<br>
+			{# Placeholder for dataplot #}
 			<img src="https://via.placeholder.com/500.png" class="rounded mx-auto d-block">
 		</div>
 	</div>
