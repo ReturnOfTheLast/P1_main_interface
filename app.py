@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import requests
 
 app = Flask(__name__)
 
@@ -15,13 +16,15 @@ def drone_view():
 # Data Analysis
 @app.get("/data")
 def data_view():
-    ftype = request.args.get("ftype", "")
+    ftype = request.args.get("ftype", 2)
     fstr = request.args.get("fstr", "")
 
-    listview = {
-            "ssid 1": ["189377823925", "827390733912"],
-            "ssid 2": ["189372983053", "084724652590", "739472952784"]
-    }
+    arg1 = ftype if len(fstr) != 0 else 2
+    arg2 = fstr if len(fstr) != 0 else '0'
+
+    r = requests.get(f"http://localhost:8090/api/ssidoverview/{arg1}/{arg2}") 
+    listview = r.json()
+
 
     return render_template("data.html", ftype=ftype, fstr=fstr, listview=listview)
 

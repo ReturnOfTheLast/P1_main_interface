@@ -4,10 +4,10 @@
 	<h1 class="text-center">Data for {{ bssid }}</h1>
 	<div class="row">
 		<div class="col">
-			<img src="https://via.placeholder.com/600.png?text=Heatmap" class="rounded mx-auto d-block">
+			<img src="http://localhost:8090/api/heatmap/{{ bssid }}.png" class="rounded mx-auto d-block">
 		</div>
 		<div class="col">
-			<img src="https://via.placeholder.com/600.png?text=Dataplot" class="rounded mx-auto d-block">
+			<img src="http://localhost:8090/api/bssidplot/{{ bssid }}.png" class="rounded mx-auto d-block">
 		</div>
 	</div>
 {% endblock %}
