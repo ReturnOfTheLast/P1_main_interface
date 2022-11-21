@@ -5,10 +5,14 @@
 	<div class="row">
 		<div class="col">
 			<form>
-				<div class="row g-3 align-items-center">
-					<div class="col-12">
-						<label class="form-label" for="instruct">Instructions</label>
-						<textarea class="form-control" id="instruct" name="instruct" rows="10"></textarea>
+				<div class="row g-3">
+					<div class="col-6">
+						<label class="form-label" for="width">Width of Rectangle (in cm)</label>
+						<input class="form-control" type="text" id="width" name="width">
+					</div>
+					<div class="col-6">
+						<label class="form-label" for="height">Height of Rectangle (in cm)</label>
+						<input class="form-control" type="text" id="height" name="height">
 					</div>
 					<div class="col-12">
 						<button class="btn btn-success" type="submit">Run</button>
@@ -17,7 +21,7 @@
 			</form>
 		</div>
 		<div class="col">
-			<img src="https://via.placeholder.com/500.png" class="rounded mx-auto d-block">
+			<img src="https://via.placeholder.com/500.png?text=Drawing+of+path" class="rounded mx-auto d-block">
 		</div>
 	</div>
 {% endblock %}

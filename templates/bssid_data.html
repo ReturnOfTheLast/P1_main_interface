@@ -2,5 +2,12 @@
 {% block title %}{{ bssid }}{% endblock %}
 {% block content %}
 	<h1 class="text-center">Data for {{ bssid }}</h1>
-	<img src="https://via.placeholder.com/800.png" class="rounded mx-auto d-block">
+	<div class="row">
+		<div class="col">
+			<img src="https://via.placeholder.com/600.png?text=Heatmap" class="rounded mx-auto d-block">
+		</div>
+		<div class="col">
+			<img src="https://via.placeholder.com/600.png?text=Dataplot" class="rounded mx-auto d-block">
+		</div>
+	</div>
 {% endblock %}
