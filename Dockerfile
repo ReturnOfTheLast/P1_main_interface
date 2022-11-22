@@ -2,7 +2,6 @@ FROM python:3.10
 
 RUN pip install flask
 
-COPY app.py app.py
-COPY templates templates
+COPY . .
 
-CMD python app.py
+CMD python app.py --docker

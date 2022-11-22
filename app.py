@@ -1,5 +1,16 @@
 from flask import Flask, render_template, request
 import requests
+import argparse
+
+data_analysis_host = "localhost"
+
+if args.docker:
+    data_analysis_host = "data_analysis_engine"
+
+# Optional docker flag
+parser = argparse.ArgumentParser()
+parser.add_argument('--docker', action="store_true", default=False, dest="docker")
+args = parser.parse_args()
 
 app = Flask(__name__)
 
@@ -22,7 +33,7 @@ def data_view():
     arg1 = ftype if len(fstr) != 0 else 2
     arg2 = fstr if len(fstr) != 0 else '0'
 
-    r = requests.get(f"http://localhost:8090/api/ssidoverview/{arg1}/{arg2}") 
+    r = requests.get(f"http://{data_analysis_host}:8090/api/ssidoverview/{arg1}/{arg2}") 
     listview = r.json()
 
 
@@ -31,7 +42,7 @@ def data_view():
 # Data Analysis - BSSID
 @app.get("/data/bssid/<string:bssid>")
 def bssid_data_view(bssid: str):
-    return render_template("bssid_data.html", bssid=bssid)
+    return render_template("bssid_data.html", bssid=bssid, data_analysis_host=data_analysis_host)
 
 # Data Analysis - SSID
 @app.get("/data/ssid/<string:ssid>")
