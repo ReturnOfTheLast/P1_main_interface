@@ -2,15 +2,15 @@ from flask import Flask, render_template, request
 import requests
 import argparse
 
-data_analysis_host = "localhost"
-
-if args.docker:
-    data_analysis_host = "data_analysis_engine"
-
 # Optional docker flag
 parser = argparse.ArgumentParser()
 parser.add_argument('--docker', action="store_true", default=False, dest="docker")
 args = parser.parse_args()
+
+data_analysis_host = "localhost"
+
+if args.docker:
+    data_analysis_host = "data_analysis_engine"
 
 app = Flask(__name__)
 
