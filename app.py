@@ -42,7 +42,7 @@ def data_view():
 # Data Analysis - BSSID
 @app.get("/data/bssid/<string:bssid>")
 def bssid_data_view(bssid: str):
-    return render_template("bssid_data.html", bssid=bssid, data_analysis_host=data_analysis_host)
+    return render_template("bssid_data.html", bssid=bssid)
 
 # Data Analysis - SSID
 @app.get("/data/ssid/<string:ssid>")
