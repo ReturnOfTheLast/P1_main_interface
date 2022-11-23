@@ -41,7 +41,7 @@ def data_view():
 # Data Analysis - BSSID
 @app.get("/data/bssid/<string:bssid>")
 def bssid_data_view(bssid: str):
-    r = requests.get(f"http://{data_analysis_host}:8090/api/bssiddatapoints/<string:bssid>")
+    r = requests.get(f"http://{data_analysis_host}:8090/api/bssiddatapoints/{bssid}")
     datapoints = r.json()
 
     return render_template("bssid_data.html", bssid=bssid, datapoints=datapoints)
