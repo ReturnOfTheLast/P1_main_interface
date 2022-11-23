@@ -36,13 +36,15 @@ def data_view():
     r = requests.get(f"http://{data_analysis_host}:8090/api/ssidoverview/{arg1}/{arg2}") 
     listview = r.json()
 
-
     return render_template("data.html", ftype=ftype, fstr=fstr, listview=listview)
 
 # Data Analysis - BSSID
 @app.get("/data/bssid/<string:bssid>")
 def bssid_data_view(bssid: str):
-    return render_template("bssid_data.html", bssid=bssid)
+    r = requests.get(f"http://{data_analysis_host}:8090/api/bssiddatapoints/<string:bssid>")
+    datapoints = r.json()
+
+    return render_template("bssid_data.html", bssid=bssid, datapoints=datapoints)
 
 # Data Analysis - SSID
 @app.get("/data/ssid/<string:ssid>")

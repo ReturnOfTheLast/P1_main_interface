@@ -38,9 +38,9 @@
 						<li class="list-group-item"><a href="/data/ssid/{{ ssid }}">{{ ssid }}</a>
 							<ul class="list-group">
 								{# Go through all bssids for that ssid #}
-								{% for bssid in listview[ssid] %}
+								{% for bssid_scans in listview[ssid] %}
 									{# and create a list element for these #}
-									<li class="list-group-item"><a href="/data/bssid/{{ bssid }}">{{ bssid }}</a></li>
+									<li class="list-group-item"><a href="/data/bssid/{{ bssid_scans[0] }}">{{ bssid_scans[0] }}</a><p class="text-end">{{ bssid_scans[1] }}</p></li>
 								{% endfor %}
 							</ul>
 						</li>
