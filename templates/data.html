@@ -39,8 +39,7 @@
 					<tbody>
 						{% for ssid in listview %}
 							<tr>
-								<th scope="row" class="table-dark">{{ ssid }}</th>
-								<td colspan="2"></td>
+								<th scope="row" colspan="3" class="table-dark">{{ ssid }}</th>
 							</tr>
 							{% for bssid_scans in listview[ssid] %}
 								<tr>
