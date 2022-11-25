@@ -51,7 +51,7 @@ def dronepath_api(length: int, height: int):
     )
 
     output = BytesIO()
-    im.save(output)
+    im.save(output, format="png")
 
     return Response(output.getvalue(), mimetype="image/png")
 
