@@ -29,6 +29,7 @@
 			</form>
 			{# Vertical Spacer #}
 			<br>
+			{# Make table of ssids and bssids if they exist #}
 			{% if listview %}
 				<table class="table table-striped table-hover">
 					<thead>
@@ -37,13 +38,16 @@
 						<th scope="col">Number of scans</th>
 					</thead>
 					<tbody>
+						{# Loop over all ssids #}
 						{% for ssid in listview %}
 							<tr>
 								<th scope="row" colspan="3" class="table-dark">{{ ssid }}</th>
 							</tr>
+							{# Loop over all bssids that belong to the ssid #}
 							{% for bssid_scans in listview[ssid] %}
 								<tr>
 									<td></td>
+									{# Link to the bssid data page #}
 									<td><a href="/data/bssid/{{ bssid_scans[0] }}">{{ bssid_scans[0] }}</a></td>
 									<td>{{ bssid_scans[1] }}</td>
 								</tr>
@@ -52,6 +56,7 @@
 					</tbody>
 				</table>
 			{% else %}
+				{# Info if no data exist #}
 				<div class="row bg-danger justify-content-center text-dark text-center align-items-center rounded">
 					<div class="col">
 						<h2>No Data</h2>
@@ -60,6 +65,7 @@
 			{% endif %}
 		</div>
 		<div class="col">
+			{# Graph of access points found over time #}
 			<img src="http://localhost:8090/api/apscans.png" width="500" class="rounded mx-auto d-block">
 		</div>
 	</div>

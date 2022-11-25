@@ -46,10 +46,6 @@ def bssid_data_view(bssid: str):
 
     return render_template("bssid_data.html", bssid=bssid, datapoints=datapoints)
 
-# Data Analysis - SSID
-@app.get("/data/ssid/<string:ssid>")
-def ssid_data_view(ssid: str):
-    return render_template("ssid_data.html", ssid=ssid)
-
+# Start server when run directly
 if __name__ == "__main__":
     app.run("0.0.0.0", 8080)

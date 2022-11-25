@@ -4,15 +4,20 @@
 	<h1 class="text-center">Drone Controller</h1>
 	<div class="row">
 		<div class="col">
+			{# Form to input values to the drone #}
 			<form>
 				<div class="row g-3">
-					<div class="col-6">
+					<div class="col-4">
 						<label class="form-label" for="width">Width of Rectangle (in cm)</label>
 						<input class="form-control" type="text" id="width" name="width">
 					</div>
-					<div class="col-6">
+					<div class="col-4">
 						<label class="form-label" for="length">Length of Rectangle (in cm)</label>
 						<input class="form-control" type="text" id="length" name="length">
+					</div>
+					<div class="col-4">
+						<label class="form-label" for="rounds">Amount of Rounds to fly</label>
+						<input class="form-control" type="text" id="rounds" name="rounds">
 					</div>
 					<div class="col-12">
 						<button class="btn btn-success" type="submit">Run</button>
@@ -21,6 +26,7 @@
 			</form>
 		</div>
 		<div class="col">
+			{# TODO: Add visual route plan #}
 			<img src="https://via.placeholder.com/500.png?text=Drawing+of+path" class="rounded mx-auto d-block">
 		</div>
 	</div>
