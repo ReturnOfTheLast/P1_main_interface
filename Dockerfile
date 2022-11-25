@@ -1,6 +1,6 @@
 FROM python:3.10
 
-RUN pip install flask requests
+RUN pip install flask requests pillow
 
 COPY . .
 
