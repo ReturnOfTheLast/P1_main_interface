@@ -47,7 +47,7 @@ def dronepath_api(length: int, height: int):
             )
         ],
         outline=(0, 0, 0),
-        width=5
+        width=2
     )
 
     output = BytesIO()
