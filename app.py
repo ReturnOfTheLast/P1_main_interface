@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from PIL import Image, ImageDraw
 import requests
 import argparse
 
@@ -22,7 +23,31 @@ def index_view():
 # Drone Controller
 @app.get("/drone")
 def drone_view():
-    return render_template("drone.html")
+    length = request.args.get("length", 100)
+    height = request.args.get("height", 100)
+    rounds = request.args.get("rounds", 3)
+
+    return render_template("drone.html", length=length, height=height, rounds=rounds)
+
+# Api route to make 
+@app.get("/api/dronepath/<int:length>.<int:height>.png")
+def dronepath_api(length: int, height: int):
+    im = Image.new("RGB", (250, 250), color=(255, 255, 255))
+    draw = ImageDraw.Draw(im)
+    draw.rectangle(
+        [
+            (
+                (im.width-length)/2,
+                (im.height-height)/2
+            ),
+            (
+                (im.width+length)/2,
+                (im.height+height)/2
+            )
+        ],
+        outline=(0, 0, 0),
+        width=5
+    )
 
 # Data Analysis
 @app.get("/data")
