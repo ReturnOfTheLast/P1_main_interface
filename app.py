@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Response
 from PIL import Image, ImageDraw
+from io import BytesIO
 import requests
 import argparse
 
@@ -48,6 +49,11 @@ def dronepath_api(length: int, height: int):
         outline=(0, 0, 0),
         width=5
     )
+
+    output = BytesIO()
+    im.save(output)
+
+    return Response(output.getvalue(), mimetype="image/png")
 
 # Data Analysis
 @app.get("/data")
