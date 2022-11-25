@@ -9,15 +9,15 @@
 				<div class="row g-3">
 					<div class="col-4">
 						<label class="form-label" for="length">Length of Rectangle (in cm)</label>
-						<input class="form-control" type="text" id="length" name="length" value="{{ length }}">
+						<input class="form-control" type="number" id="length" name="length" min="1" max="250" value="{{ length }}">
 					</div>
 					<div class="col-4">
 						<label class="form-label" for="height">Height of Rectangle (in cm)</label>
-						<input class="form-control" type="text" id="height" name="height" value="{{ height }}">
+						<input class="form-control" type="number" id="height" name="height" min="1" max="250" value="{{ height }}">
 					</div>
 					<div class="col-4">
 						<label class="form-label" for="rounds">Amount of Rounds to fly</label>
-						<input class="form-control" type="text" id="rounds" name="rounds" value="{{ rounds }}">
+						<input class="form-control" type="number" id="rounds" name="rounds" min="1" max="250" value="{{ rounds }}">
 					</div>
 					<div class="col-12">
 						<button class="btn btn-success" type="submit">Run</button>
