@@ -27,6 +27,8 @@ def drone_view():
     length = request.args.get("length", 100)
     height = request.args.get("height", 100)
     rounds = request.args.get("rounds", 3)
+    if request.args.get("start", 0) == 1:
+        r = requests.get(f"http://host.docker.internal:8100/api/fly/{length}/{height}/{rounds}")
 
     return render_template("drone.html", length=length, height=height, rounds=rounds)
 
